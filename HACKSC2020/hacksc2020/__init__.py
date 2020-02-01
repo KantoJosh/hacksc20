@@ -8,5 +8,5 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 
-from hacksc2020 import routes # make routes public
+from hacksc2020.routes import User,Item # make routes public
 from hacksc2020 import forms
