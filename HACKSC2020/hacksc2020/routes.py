@@ -22,6 +22,21 @@ item = [
         'price': 2.74 
     },
     {
+        'image_file': '/static/apple.jpeg',
+        'name': 'Apple',
+        'price': 2.74 
+    },
+    {
+        'image_file': '/static/apple.jpeg',
+        'name': 'Apple',
+        'price': 2.74 
+    },
+    {
+        'image_file': '/static/apple.jpeg',
+        'name': 'Apple',
+        'price': 2.74 
+    },
+    {
         'image_file': '/static/pear.jpg',
         'name': 'Pear',
         'price': 3.99 
