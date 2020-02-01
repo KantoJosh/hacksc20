@@ -23,3 +23,13 @@ def register():
 def login():
     form = LoginForm()  
     return render_template("login.html",title="Login",form=form)
+
+@app.route('/<itemid>',methods=["GET","POST"])
+def product_page(file):
+    return render_template(file)
+    # mapping of object name ('orange':file)
+
+
+
+
+# click on image: href is a url_for to product_page
