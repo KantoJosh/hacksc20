@@ -1,6 +1,7 @@
 from flask import Flask, escape, request,render_template,url_for,flash,redirect
 from hacksc2020 import app,db
 from hacksc2020.forms import RegistrationForm, LoginForm
+from hacksc2020.models import User,Item
 
 @app.route('/',methods =["GET","POST"])
 def home():
@@ -10,9 +11,10 @@ def home():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data, password=form.password)
+        user = User(username=form.username.data, email=form.email.data, password=form.password.data)
         db.session.add(user)
-        db.commit()
+        db.session.commit()
+        print(User.query.all())
         return redirect(url_for("login"))
     return render_template("register.html",title="Register",form=form)
 
