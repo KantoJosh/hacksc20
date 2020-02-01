@@ -1,16 +1,36 @@
+<style>
+img {
+    width: 200px; /* You can set the dimensions to whatever you want */
+    height: 200px;
+    object-fit: cover;
+}
+</style>
+
 {% extends "layout.html" %}
 {% block content %}
 
-<div class="container">
+
     <div class="row">
 {% for i in item %}
     <div class="col-sm-4">
-    <img src="{{ i.image_file }}" class="img-fluid" alt="Responsive image"  width=400;>
-    <h1>{{ i.name }} ${{ i.price }}</h1>
-    <button type="button" class="btn btn-primary btn-lg">Add To Cart</button>
-</div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ i.image_file }}">
+            <div class="card-body">
+                <div class="row justify-content-between">
+                    <div class="col-4">
+                     <b>{{ i.name }} </b>   
+                    </div>
+                    <div class="col-4">
+                      <b>${{ i.price }}</b>  
+                    </div>
+                </div>
+              <div class="col text-center">
+              <a href="#" class="btn btn-primary">Add To Cart</a>
+            </div>
+            </div>
+          </div>
+    </div>
 {% endfor %}
-</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
