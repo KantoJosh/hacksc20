@@ -1,4 +1,4 @@
-from flask import Flask, escape, request,render_template,url_for,flash,redirect
+from flask import Flask, escape, request,render_template,url_for,flash,redirect,jsonify
 from hacksc2020 import app,db
 from hacksc2020.forms import RegistrationForm, LoginForm
 from hacksc2020.models import User,Item
@@ -83,3 +83,11 @@ def product_page(file):
 @app.route('/cart',methods =["GET","POST"])
 def cart():
     return render_template("cart.html",title="Cart")
+
+
+
+#background process happening without any refreshing
+@app.route('/background_process_test')
+def background_process_test():
+    print ("Hello")
+    return ("nothing")
