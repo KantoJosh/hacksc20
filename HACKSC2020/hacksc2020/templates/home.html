@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+{% for i in item %}
+    <div class="col-sm-4">
+    <img src="{{ i.image_file }}" class="img-fluid" alt="Responsive image"  width=400;>
+    <h1>{{ i.name }} ${{ i.price }}</h1>
+    <button type="button" class="btn btn-primary btn-lg">Add To Cart</button>
+</div>
+{% endfor %}
+</div>
+</div>
+
+{% endblock content %}
