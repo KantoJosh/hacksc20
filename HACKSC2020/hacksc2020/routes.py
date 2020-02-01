@@ -1,5 +1,5 @@
 from flask import Flask, escape, request,render_template,url_for,flash,redirect
-from hacksc2020 import app#,db
+from hacksc2020 import app,db
 from hacksc2020.forms import RegistrationForm, LoginForm
 
 @app.route('/',methods =["GET","POST"])
