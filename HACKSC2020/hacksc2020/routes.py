@@ -15,11 +15,12 @@ from hacksc2020.models import User,Item
 
 
 itemList = [
-    Item(image='/static/apple1.jpg',name='apple',price=2.73),
-    Item(image='/static/banana3.jpg',name='banana',price=1.99 ),
-    Item(image='/static/carrot2.jpg',name='carrot',price=3.99 ),
-    Item(image='/static/grapes1.jpg',name='grapes',price=2.99 ),
-    Item(image='/static/orange1.jpg',name='orange',price=1.99 ),
+    Item(image='/static/apple1.jpg',name='apple',price=0.25),
+    Item(image='/static/pear13.jpg',name='pear',price=0.51 ),
+    Item(image='/static/banana3.jpg',name='banana',price=0.15),
+    Item(image='/static/carrot2.jpg',name='carrot',price=0.14),
+    Item(image='/static/orange1.jpg',name='orange',price=0.42),
+    Item(image='/static/grapes1.jpg',name='grapes',price=2.35),
 ]
 
 @app.route('/',methods =["GET","POST"])
