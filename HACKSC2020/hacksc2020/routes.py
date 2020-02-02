@@ -82,6 +82,9 @@ def pay(total):
 
 @app.route('/paid',methods =["GET","POST"])
 def paid():
+    user = User.query.all()[0]
+    user.cart = ""
+    db.session.commit()
     return render_template("paid.html",title="Paid")
 
 
