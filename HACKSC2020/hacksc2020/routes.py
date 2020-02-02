@@ -14,65 +14,6 @@ from hacksc2020.models import User,Item
 # stripe.api_key = stripe_keys['secret_key']
 
 
-# user = [
-#     {
-#         'username': 'Jigga',
-#         'email': 'sc@tidal.com',
-#         'password': 'password'
-#     },
-#     {
-#         'username': 'Ye',
-#         'email': 'kim@yeezy.com',
-#         'password': 'password'
-#     }
-# ]
-# item = [
-#     {
-#         'image_file': '/static/apple1.jpeg',
-#         'name': 'Apple',
-#         'price': 0.25 
-#     },
-#     {
-#         'image_file': '/static/banana3.jpeg',
-#         'name': 'Banana',
-#         'price': 0.15 
-#     },
-#     {
-#         'image_file': '/static/carrot2.jpeg',
-#         'name': 'Carrot',
-#         'price': 0.15 
-#     },
-#     {
-#         'image_file': '/static/grapes1.jpeg',
-#         'name': 'Grapes',
-#         'price': 2.35 
-#     },
-#     {
-#         'image_file': '/static/pear.jpg',
-#         'name': 'Pear',
-#         'price': 3.99 
-#     },
-#     {
-#         'image_file': '/static/apple.jpeg',
-#         'name': 'Apple',
-#         'price': 2.74 
-#     },
-#     {
-#         'image_file': '/static/pear.jpg',
-#         'name': 'Pear',
-#         'price': 3.99 
-#     },
-#     {
-#         'image_file': '/static/apple.jpeg',
-#         'name': 'Apple',
-#         'price': 2.74 
-#     },
-#     {
-#         'image_file': '/static/pear.jpg',
-#         'name': 'Pear',
-#         'price': 3.99 
-#     }
-# ]
 itemList = [
     Item(image='/static/apple1.jpg',name='apple',price=0.25),
     Item(image='/static/pear13.jpg',name='pear',price=0.51 ),
@@ -80,13 +21,7 @@ itemList = [
     Item(image='/static/carrot2.jpg',name='carrot',price=0.14),
     Item(image='/static/orange1.jpg',name='orange',price=0.42),
     Item(image='/static/grapes1.jpg',name='grapes',price=2.35),
-    # Item(image='/static/apple.jpeg',name='apple',price=2.73),
-    # Item(image='/static/pear.jpg',name='pear',price=3.99),
-    # Item(image='/static/apple.jpeg',name='apple',price=2.73)
 ]
-
-itemIDs = [x.id for x in Item.query.all()]
-
 
 @app.route('/',methods =["GET","POST"])
 @app.route('/home',methods =["GET","POST"])
@@ -132,11 +67,18 @@ def cart(id):
     user = User.query.filter_by(username="USER").first()
     user.add_to_cart(id)
     #return render_template("cart.html",title="Cart",items=items)
-    return render_template("cart.html",title="Cart",items=user.cart)
+    our_cart = []
+    total_price = 0
+    for item in user.cart.rstrip("  \n").split("/"):
+        if len(item) > 0:
+            our_cart.append(Item.query.filter_by(id=int(item)).first()) # each item is an Item object
+            total_price += Item.query.filter_by(id=int(item)).first().price
 
-# @app.route('/pay',methods =["GET","POST"])
-# def pay():
-#     return render_template("pay.html",title="Pay", key=stripe_keys['publishable_key'])
+    return render_template("cart.html",title="Cart",items=our_cart,total_price=total_price)
+
+@app.route('/pay',methods =["GET","POST"])
+def pay():
+    return render_template("pay.html",title="Pay", key=stripe_keys['publishable_key'])
 
 
 #background process happening without any refreshing

@@ -2,7 +2,20 @@
 {% block content %}
 <h1>Shopping Cart</h1>
 <hr>
-{% for i in items.split("/") %}
-    <b>{{i}}</b>
+{% for i in items %}
+
+    <img class=".img-rounded" src="{{ i.image }}">
+    <div align="center">
+        {{ i.name }}
+    </div>
+    <div align="right">
+        {{i.price}}
+    </div>
+
 {% endfor %}
+<div align="center">
+    <p>
+        <b>Total price: ${{ total_price }}</b>
+    </p>
+</div>
 {% endblock content %}
