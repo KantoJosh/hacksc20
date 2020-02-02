@@ -28,24 +28,24 @@ from hacksc2020.models import User,Item
 # ]
 # item = [
 #     {
-#         'image_file': '/static/apple.jpeg',
+#         'image_file': '/static/apple1.jpeg',
 #         'name': 'Apple',
-#         'price': 2.74 
+#         'price': 0.25 
 #     },
 #     {
-#         'image_file': '/static/apple.jpeg',
-#         'name': 'Apple',
-#         'price': 2.74 
+#         'image_file': '/static/banana3.jpeg',
+#         'name': 'Banana',
+#         'price': 0.15 
 #     },
 #     {
-#         'image_file': '/static/apple.jpeg',
-#         'name': 'Apple',
-#         'price': 2.74 
+#         'image_file': '/static/carrot2.jpeg',
+#         'name': 'Carrot',
+#         'price': 0.15 
 #     },
 #     {
-#         'image_file': '/static/apple.jpeg',
-#         'name': 'Apple',
-#         'price': 2.74 
+#         'image_file': '/static/grapes1.jpeg',
+#         'name': 'Grapes',
+#         'price': 2.35 
 #     },
 #     {
 #         'image_file': '/static/pear.jpg',
@@ -74,12 +74,12 @@ from hacksc2020.models import User,Item
 #     }
 # ]
 itemList = [
-    Item(image='/static/apple.jpeg',name='apple',price=2.73),
-    Item(image='/static/pear.jpg',name='pear',price=3.99 ),
-    # Item(image='/static/apple.jpeg',name='apple',price=2.73),
-    # Item(image='/static/pear.jpg',name='pear',price=3.99 ),
-    # Item(image='/static/apple.jpeg',name='apple',price=2.73),
-    # Item(image='/static/pear.jpg',name='pear',price=3.99 ),
+    Item(image='/static/apple1.jpg',name='apple',price=0.25),
+    Item(image='/static/pear13.jpg',name='pear',price=0.51 ),
+    Item(image='/static/banana3.jpg',name='banana',price=0.15),
+    Item(image='/static/carrot2.jpg',name='carrot',price=0.14),
+    Item(image='/static/orange1.jpg',name='orange',price=0.42),
+    Item(image='/static/grapes1.jpg',name='grapes',price=2.35),
     # Item(image='/static/apple.jpeg',name='apple',price=2.73),
     # Item(image='/static/pear.jpg',name='pear',price=3.99),
     # Item(image='/static/apple.jpeg',name='apple',price=2.73)
