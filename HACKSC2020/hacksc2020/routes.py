@@ -99,10 +99,10 @@ def product_page(file):
 
 
 # click on image: href is a url_for to product_page
-@app.route('/cart',methods =["GET","POST"])
+@app.route('/cart/',methods =["GET","POST"])
 def cart():
     user = User.query.filter_by(username="USER").first()
-    print(user)
+    #print(user,item)
     # get rid of item passed from home route and add it to 
     return render_template("cart.html",title="Cart",user=user)
 
