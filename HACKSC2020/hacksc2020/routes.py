@@ -6,10 +6,10 @@ from hacksc2020.forms import RegistrationForm, LoginForm,DropdownForm
 from hacksc2020.models import User,Item
 # import stripe
 
-# stripe_keys = {
-#   'secret_key': os.environ['STRIPE_SECRET_KEY'],
-#   'publishable_key': os.environ['STRIPE_PUBLISHABLE_KEY']
-# }
+stripe_keys = {
+  'secret_key': 'sk_test_FrdveOp5RyTfbvOMgAemIwG800vKCIpSxE',
+  'publishable_key': 'pk_test_wPs2huUB01y9PQJ3RFSXyJQK00JhUeAbnd'
+}
 
 # stripe.api_key = stripe_keys['secret_key']
 
@@ -76,9 +76,13 @@ def cart(id):
 
     return render_template("cart.html",title="Cart",items=our_cart,total_price=total_price)
 
-@app.route('/pay',methods =["GET","POST"])
-def pay():
-    return render_template("pay.html",title="Pay", key=stripe_keys['publishable_key'])
+@app.route('/pay/<total>',methods =["GET","POST"])
+def pay(total):
+    return render_template("pay.html",title="Pay", key=stripe_keys['publishable_key'],total=total)
+
+@app.route('/paid',methods =["GET","POST"])
+def paid():
+    return render_template("paid.html",title="Paid")
 
 
 #background process happening without any refreshing

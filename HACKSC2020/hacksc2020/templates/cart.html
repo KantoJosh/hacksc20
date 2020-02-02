@@ -2,20 +2,24 @@
 {% block content %}
 <h1>Shopping Cart</h1>
 <hr>
+<div class="col">
 {% for i in items %}
-
-    <img class=".img-rounded" src="{{ i.image }}">
+    <img src="{{ i.image }}" class="rounded">
     <div align="center">
-        {{ i.name }}
+        <h1>{{ i.name }}</h1>
     </div>
     <div align="right">
-        {{i.price}}
+        <h1>{{i.price}}</h1>
     </div>
 
 {% endfor %}
+</div>
 <div align="center">
-    <p>
-        <b>Total price: ${{ total_price }}</b>
-    </p>
+        <b style="font-size: 50px;">Total price: ${{ total_price }}</b>
+</div>
+<div class="row">
+    <div class="col align-right">
+        <a href="{{url_for('pay',total=total_price)}}" class="btn btn-outline-primary btn-lg">Checkout</a>
+</div>
 </div>
 {% endblock content %}
