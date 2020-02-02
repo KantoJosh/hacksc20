@@ -24,11 +24,31 @@ img {
                       <b>${{ i.price }}</b>  
                     </div>
                 </div>
+<<<<<<< HEAD
               <div class="col text-center">
               <a href="{{url_for('cart')}}" class="btn btn-primary">Add To Cart</a>
+=======
+                <div class="row">
+              <div class="col">
+              <a href="#" class="btn btn-primary">Add To Cart</a>
+>>>>>>> 42443b4aa2e6f34ac210d5bce152fbe5263f8d89
             </div>
+            <div class="col">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">1</a>
+                      <a class="dropdown-item" href="#">2</a>
+                      <a class="dropdown-item" href="#">3</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
             </div>
           </div>
+          <br>
     </div>
 {% endfor %}
 </div>
