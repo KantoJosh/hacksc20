@@ -1,5 +1,6 @@
 from flask import Flask, escape, request,render_template,url_for,flash,redirect,jsonify
 from hacksc2020 import app,db
+from flask_login import login_user, current_user, logout_user, login_required
 from hacksc2020.forms import RegistrationForm, LoginForm
 from hacksc2020.models import User,Item
 
@@ -83,6 +84,9 @@ def register():
 @app.route('/login',methods =["GET","POST"])
 def login():
     form = LoginForm()  
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        login_user(user)
     return render_template("login.html",title="Login",form=form)
 
 
@@ -97,7 +101,10 @@ def product_page(file):
 # click on image: href is a url_for to product_page
 @app.route('/cart',methods =["GET","POST"])
 def cart():
-    return render_template("cart.html",title="Cart")
+    user = User.query.filter_by(username="USER").first()
+    print(user)
+    # get rid of item passed from home route and add it to 
+    return render_template("cart.html",title="Cart",user=user)
 
 
 

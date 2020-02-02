@@ -25,27 +25,12 @@ img {
                     </div>
                 </div>
               <div class="col text-center">
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="{{url_for('cart')}}" class="btn btn-primary">Add To Cart</a>
             </div>
             </div>
           </div>
     </div>
 {% endfor %}
 </div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</script>
-
-<script type="text/javascript">
-    $(button).click(function(){
-        $.ajax({
-            url: "/home/",
-            type: "POST",
-            success: function(resp){
-                $('divNresponse').append(resp.data)
-            }
-        })
-    })
-</script>
 
 {% endblock content %}
