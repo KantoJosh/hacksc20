@@ -118,7 +118,7 @@ def cart():
 
 @app.route('/pay',methods =["GET","POST"])
 def pay():
-    return render_template("pay.html",title="Pay", key=stripe_keys['publishable_key'])
+    return render_template("pay.html",title="Pay")
 
 
 #background process happening without any refreshing
