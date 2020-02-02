@@ -47,7 +47,7 @@ def login():
     form = LoginForm()  
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-    return render_template("login.html",title="Login",form=form)
+    return render_template("home.html",title="Login",form=form)
 
 
 # @app.route('/<itemid>',methods=["GET","POST"])
