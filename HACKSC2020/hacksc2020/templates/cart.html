@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Shopping Cart</h1>
 <hr>
-{% for i in cart %}
-
+{% for i in items.split("/") %}
+    <b>{{i}}</b>
 {% endfor %}
 {% endblock content %}

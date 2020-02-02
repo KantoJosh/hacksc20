@@ -14,7 +14,7 @@ img {
 {% for i in item %}
     <div class="col-sm-4">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{ i.image_file }}">
+            <img class="card-img-top" src="{{ i.image }}">
             <div class="card-body">
                 <div class="row justify-content-between">
                     <div class="col-4">
@@ -26,7 +26,7 @@ img {
                 </div>
                 <div class="row">
               <div class="col-6">
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="{{url_for('cart',id=i.id)}}" class="btn btn-primary">Add To Cart</a>
             </div>
             <div class="col-6">
             <form class="form-inline">

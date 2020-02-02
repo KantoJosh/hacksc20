@@ -11,14 +11,17 @@ class User(db.Model):
         return f"Username={self.username},email={self.email}"
     
     def add_to_cart(self,id_name):
-        self.cart += "{id_name}/"
+        print("BEFORE")
+        self.cart += f"{id_name}/"
+        db.session.commit()
+        print("ADDED:",self.cart)
     
 
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    image = db.Column(db.String(30), unique = True, nullable = False)
-    name = db.Column(db.String(100),unique = True, nullable=False)
+    image = db.Column(db.String(30),unique=False,nullable = False)
+    name = db.Column(db.String(100),unique=False,nullable=False)
     price = db.Column(db.Float)
     stock = db.Column(db.Integer,default = 10)
 

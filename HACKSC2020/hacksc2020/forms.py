@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField,BooleanField
+from wtforms import StringField,PasswordField,SubmitField,BooleanField,SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 
@@ -25,3 +25,7 @@ class LoginForm(FlaskForm):
                             validators = [DataRequired()])
     remember = BooleanField("Remember me")
     submit = SubmitField("Login")
+
+
+class DropdownForm(FlaskForm):
+    quantity = SelectField('Quantity',choices=[(str(i),str(i)) for i in range(5)])
