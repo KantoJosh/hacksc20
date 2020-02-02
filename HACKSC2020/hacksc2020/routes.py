@@ -6,10 +6,10 @@ from hacksc2020.forms import RegistrationForm, LoginForm
 from hacksc2020.models import User,Item
 # import stripe
 
-stripe_keys = {
-  'secret_key': os.environ['STRIPE_SECRET_KEY'],
-  'publishable_key': os.environ['STRIPE_PUBLISHABLE_KEY']
-}
+# stripe_keys = {
+#   'secret_key': os.environ['STRIPE_SECRET_KEY'],
+#   'publishable_key': os.environ['STRIPE_PUBLISHABLE_KEY']
+# }
 
 # stripe.api_key = stripe_keys['secret_key']
 
