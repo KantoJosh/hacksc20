@@ -4,14 +4,14 @@
 <h1>Checkout</h1>
 <hr>
 <div>
-    <h2>Buy for {}</h2>
+    <h2>Buy for ${{total}}</h2>
     <form action="/paid" method="post">
       <script
         src="https://checkout.stripe.com/checkout.js"
         class="stripe-button"
         data-key="{{ key }}"
         data-description="CHECKOUT"
-        data-amount="500"
+        data-amount="{{ total }}"
         data-locale="auto">
       </script>
     </form>
