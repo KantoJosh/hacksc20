@@ -1,8 +1,18 @@
+import os
 from flask import Flask, escape, request,render_template,url_for,flash,redirect,jsonify
-from hacksc2020 import app,db
-from flask_login import login_user, current_user, logout_user, login_required
+from hacksc2020 import app, db
+# from flask_login import login_user, current_user, logout_user, login_required
 from hacksc2020.forms import RegistrationForm, LoginForm
 from hacksc2020.models import User,Item
+import stripe
+
+stripe_keys = {
+  'secret_key': os.environ['STRIPE_SECRET_KEY'],
+  'publishable_key': os.environ['STRIPE_PUBLISHABLE_KEY']
+}
+
+stripe.api_key = stripe_keys['secret_key']
+
 
 user = [
     {
@@ -67,7 +77,7 @@ item = [
 @app.route('/',methods =["GET","POST"])
 @app.route('/home',methods =["GET","POST"])
 def home():
-    return render_template("home.html",title="Home", item=item)
+    return render_template("home.html",title="Home", item=item )
 
 @app.route('/register',methods =["GET","POST"])
 def register():
@@ -106,6 +116,9 @@ def cart():
     # get rid of item passed from home route and add it to 
     return render_template("cart.html",title="Cart",user=user)
 
+@app.route('/pay',methods =["GET","POST"])
+def pay():
+    return render_template("pay.html",title="Pay", key=stripe_keys['publishable_key'])
 
 
 #background process happening without any refreshing
